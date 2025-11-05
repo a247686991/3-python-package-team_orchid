@@ -1,0 +1,30 @@
+import sys
+import wisdom
+
+def main():
+    args = sys.argv[1:]
+    if not args:
+        print("Usage: bloomsays randomQuote [n] | bloomsays avg num1 num2 ...")
+        return
+
+    command = args[0]
+
+    if command == "randomQuote":
+        n = int(args[1]) if len(args) > 1 else 1
+        randomQuote(n)
+    elif command == "avg":
+        if len(args) < 2:
+            print("Usage: bloomsays avg num1 num2 ...")
+            return
+        try:
+            numbers = [float(x) for x in args[1:]]
+        except ValueError:
+            print("All arguments for avg must be numbers.")
+            return
+        print(f"Your average grade is {avg(*numbers):.2f}")
+    else:
+        print(f"Unknown command: {command}")
+        print("Usage: bloomsays randomQuote [n] | bloomsays avg num1 num2 ...")
+
+if __name__ == "__main__":
+    main()
