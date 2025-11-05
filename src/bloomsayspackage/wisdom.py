@@ -1,14 +1,8 @@
 import random;
+import textwrap
 
-def bloomsays():
-    profLines = ["everything is due at class time", "ask Bloombot", "Quizzes: 25%", "Exercises & Projects: 75%", "Discord is our main source of communitcation"]
 
-    quote = random.choice(profLines)
-
-    border = "-" * (len(quote) + 2)
-    bubble = f"  {border}\n< {quote} >\n  {border}"
-
-    ascii_art = r"""
+ascii_art = r"""
         @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
         @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
         @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@&%%%##(##&@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -43,7 +37,31 @@ def bloomsays():
         @@@@@@@@@%.                 ..,..//**///////////****//%/*. ............ .&@@@@@@
         """
 
+
+def avg(*grades):
+
+    average = sum(grades)/ len(grades)
+    message = f"Your average grade is {average:.2f}"
+
+    border = "-" * (len(message) + 2)
+    bubble = f"  {border}\n< {message} >\n  {border}"
+
+
     print(f"{bubble}\n{ascii_art}")
 
-if __name__ == "__main__":
-    bloomsays()
+
+
+def randomQuote(n=1):
+    profLines = ["everything is due at class time", "ask Bloombot", "Quizzes: 25%", "Exercises & Projects: 75%", "Discord is our main source of communitcation"]
+    selected_quotes = [random.choice(profLines) for _ in range(n)]
+
+    max_length = max(len(quote) for quote in selected_quotes)
+
+    border = "-" * (max_length + 2)
+    bubble_lines = [f"  {border}"]
+    for quote in selected_quotes:
+        bubble_lines.append(f"< {quote.ljust(max_length)} >")
+    bubble_lines.append(f"  {border}")
+
+    print("\n".join(bubble_lines))
+    print(ascii_art)
