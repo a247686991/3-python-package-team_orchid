@@ -1,6 +1,6 @@
 import pytest
 
-from bloomsayspackage.bubble import make_bubble, wrap_text
+from bloomsays.bubble import make_bubble, wrap_text
 
 
 def _assert_bubble_matches(out: str, expected_lines: list[str]):

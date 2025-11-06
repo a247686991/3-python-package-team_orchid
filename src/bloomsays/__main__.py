@@ -1,5 +1,5 @@
 import sys
-import wisdom
+from bloomsays import wisdom
 
 def main():
     args = sys.argv[1:]
@@ -11,7 +11,7 @@ def main():
 
     if command == "randomQuote":
         n = int(args[1]) if len(args) > 1 else 1
-        randomQuote(n)
+        wisdom.random_quote(n)
     elif command == "avg":
         if len(args) < 2:
             print("Usage: bloomsays avg num1 num2 ...")
@@ -21,7 +21,7 @@ def main():
         except ValueError:
             print("All arguments for avg must be numbers.")
             return
-        print(f"Your average grade is {avg(*numbers):.2f}")
+        wisdom.avg(*numbers)
     else:
         print(f"Unknown command: {command}")
         print("Usage: bloomsays randomQuote [n] | bloomsays avg num1 num2 ...")
