@@ -1,6 +1,6 @@
 import pytest
 
-from bloomsayspackage.bubble import make_bubble
+from bloomsayspackage.bubble import make_bubble, wrap_text
 
 
 def _assert_bubble_matches(out: str, expected_lines: list[str]):
@@ -53,4 +53,51 @@ def test_preserve_empty_line():
 def test_text_none_raises():
 	with pytest.raises(ValueError):
 		make_bubble(None)
+
+
+# Tests for wrap_text function
+def test_wrap_text_simple():
+	result = wrap_text("hello world", 10)
+	assert result == ["hello", "world"]
+
+
+def test_wrap_text_fits_on_one_line():
+	result = wrap_text("hello", 10)
+	assert result == ["hello"]
+
+
+def test_wrap_text_multiple_words_fit():
+	result = wrap_text("one two three four", 15)
+	assert result == ["one two three", "four"]
+
+
+def test_wrap_text_long_word_exceeds_width():
+	# A single word longer than width should be on its own line
+	result = wrap_text("short verylongword short", 10)
+	assert result == ["short", "verylongword", "short"]
+
+
+def test_wrap_text_empty_string():
+	result = wrap_text("", 10)
+	assert result == [""]
+
+
+def test_wrap_text_width_one():
+	result = wrap_text("a b c", 1)
+	assert result == ["a", "b", "c"]
+
+
+def test_wrap_text_invalid_width_zero():
+	with pytest.raises(ValueError, match="width must be >= 1"):
+		wrap_text("text", 0)
+
+
+def test_wrap_text_invalid_width_negative():
+	with pytest.raises(ValueError, match="width must be >= 1"):
+		wrap_text("text", -5)
+
+
+def test_wrap_text_invalid_width_none():
+	with pytest.raises(ValueError, match="width must be >= 1"):
+		wrap_text("text", None)
 
