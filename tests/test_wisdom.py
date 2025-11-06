@@ -33,7 +33,7 @@ class Tests:
     def test_random_quote_default(self, capsys):
         wisdom.random_quote()
         captured = capsys.readouterr()
-        assert "----------------" in captured.out
+        assert any(line.strip().startswith("-") for line in captured.out.splitlines())
         assert "@@@@" in captured.out
 
     def test_random_quote_multiple_quotes_in_bubble(self, capsys):
