@@ -25,4 +25,4 @@ dev = ["pytest"]
 
 
 [project.scripts]
-bloomsays = "bloomsayspackage.__main__:main"
+bloomsays = "bloomsays.__main__:main"

@@ -1,7 +1,7 @@
 import random;
 import textwrap
 from pathlib import Path
-from bubble import make_bubble
+from .bubble import make_bubble
 
 
 

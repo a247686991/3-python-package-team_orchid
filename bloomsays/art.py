@@ -1,1 +1,0 @@
-#load beard ASCII
