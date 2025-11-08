@@ -236,6 +236,7 @@ Want to see all functions in action? Check out our [example.py](https://github.c
 ---
 
 ## Example Output
+```
   ______________
  | ask Bloombot |
   ==============
@@ -275,7 +276,7 @@ Want to see all functions in action? Check out our [example.py](https://github.c
         @@@@@@@@@@@@%..........    ...*///////(((((((//////*//&(.......... *@@@@@@@@@@@@
         @@@@@@@@@%.                 ..,..//**///////////****//%/*. ............ .&@@@@@@
         
-['ask Bloombot']
+```
 
 ## 🛠️ For Contributors
 
