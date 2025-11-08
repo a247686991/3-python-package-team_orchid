@@ -5,9 +5,10 @@ name = "pypi"
 
 [packages]
 pytest = "*"
-bloomsays = {file = ".", editable = true}
 
 [dev-packages]
+build = "*"
+bloomsays = {path = ".", editable = true}
 
 [requires]
 python_version = "3"

@@ -4,7 +4,7 @@ from bloomsays import wisdom
 def main():
     args = sys.argv[1:]
     if not args:
-        print("Usage: bloomsays randomQuote [n] OR bloomsays joke [n] OR bloomsays avg num1 num2 ...")
+        print(f"Usage: \n bloomsays randomQuote [n] \n bloomsays joke [n] \n bloomsays codingWisdom [Python/JavaScript/Java/C++] \n bloomsays avg num1 num2 ...")
         return
 
     command = args[0]
