@@ -4,10 +4,14 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-pytest = "*"
 bloomsays = {file = ".", editable = true}
 
 [dev-packages]
+build = "*"
+pytest = "*"
+coverage = "*"
+pytest-cov = "*"
+twine = "*"
 
 [requires]
 python_version = "3"
