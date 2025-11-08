@@ -1,11 +1,12 @@
-[] At least four functions that accept arguments which influence their behavior
-[] The package must be distributed in the PyPI repository and installable via pip.
-[] Use pipenv to manage the package dependencies and virtual environments with a Pipfile.
-[] Use pytest to test this should be no fewer than three tests per package function.
-[] Use build to create the package artifacts.
-[] Use twine to upload the package to PyPI.
-[] Use GitHub Actions to build your package and run your tests on two different recent versions of Python with every pull request to the main branch of your GitHub repository.
+[x] At least four functions that accept arguments which influence their behavior
+[x] The package must be distributed in the PyPI repository and installable via pip.
+[x] Use pipenv to manage the package dependencies and virtual environments with a Pipfile.
+[x] Use pytest to test this should be no fewer than three tests per package function.
+[x] Use build to create the package artifacts.
+[x] Use twine to upload the package to PyPI.
+[x] Use GitHub Actions to build your package and run your tests on two different recent versions of Python with every pull request to the main branch of your GitHub repository.
 [] delete the feature branch
+[] Create an example program that uses all functions of your package and demonstrates its complete functionality.
 [] beautiful read-me file on 
     [] description
     [] clear instructions
@@ -15,3 +16,6 @@
     [] Include a badge at the top of the README.md file showing the result of the latest build/test workflow run.
     [] Include the names of all teammates as links to their GitHub profiles in the README.md file.
     [] Include a link to your package's page on the PyPI website.
+
+
+random other notes please push to cheese shop using twine before final submission

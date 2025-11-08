@@ -34,3 +34,10 @@ Repository = "https://github.com/swe-students-fall2025/3-python-package-team_orc
 
 [project.scripts]
 bloomsays = "bloomsays.__main__:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
