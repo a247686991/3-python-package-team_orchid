@@ -5,7 +5,6 @@ name = "pypi"
 
 [packages]
 pytest = "*"
-bloomsays = {file = ".", editable = true}
 
 [dev-packages]
 build = "*"
