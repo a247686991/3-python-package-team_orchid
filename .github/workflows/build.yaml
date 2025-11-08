@@ -29,7 +29,7 @@ jobs:
       - name: install dependencies
         run: |
           python -m pip install pipenv
-          pipenv install --dev
+          pipenv sync --dev
       
       - name: build package
         run: pipenv run python -m build
