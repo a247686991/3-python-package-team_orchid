@@ -84,3 +84,38 @@ class Tests:
         assert isinstance(message, str)
         assert len(message) > 0
 
+    def test_jokes_default(self, capsys):
+        getJoke = wisdom.jokes()
+        getReturn = capsys.readouterr()
+
+        assert isinstance(getJoke, list)
+        assert len(getJoke) == 1
+        assert getJoke[0] in wisdom.allJokes
+        assert "____" in captured.out
+        assert "@@@@" in captured.out
+
+    def test_joke_true_value(self):
+        numJokes = 2
+        output = wisdom.jokes(n=2)
+
+        assert isinstance(output, list)
+        assert len(output) == numJokes
+        assert all(isinstance(i, str) for i in output)
+    
+    def test_jokes_multiple (self, capsys):
+        numJokes = 3
+        getJokes = wisdom.jokes(n=numJokes)
+        getReturn = capsys.readouterr()
+
+        assert isinstance(getJokes, list)
+        assert len(getJokes) == numJokes
+        for joke in getJokes:
+            assert joke in wisdom.allJokes
+
+        assert "____" in captured.out
+        assert "@@@@" in captured.out
+        
+        numJokesLine = [line for line in captured.out.splitlines() if "|" in line]
+        assert len(numJokesLine) >= numJokes
+
+
