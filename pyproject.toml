@@ -26,3 +26,12 @@ dev = ["pytest"]
 
 [project.scripts]
 bloomsays = "bloomsays.__main__:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+python_paths = ["src"]
