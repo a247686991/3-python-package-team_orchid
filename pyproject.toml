@@ -5,7 +5,14 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "bloomsays"
 description = "A package that gives quotes from the professor"
-version = "0.1.0"
+version = "0.1.1"
+authors = [
+  { name="Howard Appel", email="hna2019@nyu.edu" },
+  { name="Kazi Hossain", email="keh8423@nyu.edu" },
+  { name="Luna Suzuki", email="las9963@nyu.edu" },
+  { name="Tawhid Zaman", email="tnz8738@nyu.edu" },
+  { name="Jack Chen", email="jc11462@nyu.edu"}
+]
 license = { file = "LICENSE" }
 readme = "README.md"
 keywords = ["python", "package", "build", "lighthearted"]
@@ -21,7 +28,8 @@ classifiers = [
 dev = ["pytest"]
 
 [project.urls]
-"Repository" = "https://github.com/swe-students-fall2025/3-python-package-team_orchid.git"
+Homepage = "https://github.com/swe-students-fall2025/3-python-package-team_orchid"
+Repository = "https://github.com/swe-students-fall2025/3-python-package-team_orchid.git"
 
 
 [project.scripts]
