@@ -4,7 +4,7 @@ from bloomsays import wisdom
 def main():
     args = sys.argv[1:]
     if not args:
-        print(f"Usage: \n bloomsays randomQuote [n] \n bloomsays joke [n] \n bloomsays codingWisdom [Python/JavaScript/Java/C++] \n bloomsays avg num1 num2 ...")
+        print(f"Usage: \n bloomsays randomQuote [n] \n bloomsays joke [n] \n bloomsays codingWisdom [Python/JavaScript/Java/C++] \n bloomsays avg num1 num2 ... \n bloomsays studyTip [hours_available] [difficulty]")
         return
 
     command = args[0]
@@ -30,18 +30,18 @@ def main():
         wisdom.coding_wisdom(language)
     elif command == "studyTip":
         if len(args) < 3:
-            print("Usage: bloomsays studyTip numQuestions difficulty")
+            print("Usage: bloomsays studyTip [hours_available] [difficulty]")
             return
         try:
-            num_questions = int(args[1])
+            hours_available = int(args[1])
             difficulty = args[2]
         except ValueError:
-            print("numQuestions must be an integer.")
+            print("hours_available must be an integer.")
             return
-        wisdom.study_tip(num_questions, difficulty)
+        wisdom.study_tip(hours_available, difficulty)
     else:
         print(f"Unknown command: {command}")
-        print("Usage: bloomsays randomQuote [n] | bloomsays avg num1 num2 ...")
+        print(f"Usage: \n bloomsays randomQuote [n] \n bloomsays joke [n] \n bloomsays codingWisdom [Python/JavaScript/Java/C++] \n bloomsays avg num1 num2 ... \n bloomsays studyTip [hours_available] [difficulty]")
 
 if __name__ == "__main__":
     main()

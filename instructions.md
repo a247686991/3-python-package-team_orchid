@@ -26,7 +26,7 @@ Create a Python package with at least **four functions that accept arguments** w
 - Use [pytest](https://docs.pytest.org/en/latest/) to write and run tests to validate that your package code behaves as expected. Create as many tests as necessary to thorooughly verify each function's expected behavior - this should be no fewer than three tests per package function.
 - Use [build](https://pypa-build.readthedocs.io/en/stable/index.html) to create the package artifacts.
 - Use [twine](https://pypi.org/project/twine/) to upload the package to PyPI.
-- Use [GitHub Actions](https://github.com/actions) to build your package and run your tests on two different recent versions of Python with every pull request to the `main` branch of your GitHub repository.
+- Use [GitHub Actions](https://github.com/actions) to build your package and run your tests on two different recent versions of Python with every pull request to the `pipfile-experiment` branch of your GitHub repository.
 
 Create an example program that uses all functions of your package and demonstrates its complete functionality.
 
@@ -34,19 +34,19 @@ Create an example program that uses all functions of your package and demonstrat
 
 All team members must have visibly contributed to the code using their own git & GitHub accounts in order to claim that they contributed to the project.
 
-All code changes must be done in feature branches and not directly in the `main` branch.
+All code changes must be done in feature branches and not directly in the `pipfile-experiment` branch.
 
-To merge code from a feature branch into the `main` branch, do the following:
+To merge code from a feature branch into the `pipfile-experiment` branch, do the following:
 
-1. Create a pull request from the feature branch to the `main` branch.
+1. Create a pull request from the feature branch to the `pipfile-experiment` branch.
 1. Ask a fellow developer to review your code.
 1. The reviewer must review the code and run unit tests to verify that the functions behave as expepcted.
 1. If the reviewer has any concerns, discuss then and make any changes agreed upon.
-1. Merge the pull request into the `main` branch.
+1. Merge the pull request into the `pipfile-experiment` branch.
 1. Delete the feature branch.
-1. Pull the latest changes from the remote `main` branch to your local `main` branch.
+1. Pull the latest changes from the remote `pipfile-experiment` branch to your local `pipfile-experiment` branch.
 
-**Warning**: the longer you let code sit in a feature branch, the more likely your team is to end up in [merge hell](https://en.wikipedia.org/wiki/Merge_hell). . Merge feature branches into `main` often to avoid this fate.
+**Warning**: the longer you let code sit in a feature branch, the more likely your team is to end up in [merge hell](https://en.wikipedia.org/wiki/Merge_hell). . Merge feature branches into `pipfile-experiment` often to avoid this fate.
 
 ## Documentation
 

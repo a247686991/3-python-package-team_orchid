@@ -5,8 +5,6 @@ on:
     branches: [pipfile-experiment]
   push:
     branches: [pipfile-experiment]
-    tags:
-      - 'v*.*.*'
 
 jobs:
   build-and-test:
@@ -42,22 +40,3 @@ jobs:
         with:
           name: python-package-dist-${{ matrix.python-version }}
           path: dist/
-
-  publish-to-pypi:
-    name: publish to PyPi
-    needs: build-and-test
-    if: github.ref_type == 'tag'
-    runs-on: ubuntu-latest
-    permissions:
-      id-token: write
-    steps:
-      - name: download all dists
-        uses: actions/download-artifact@v4
-      
-      - name: combine dists
-        run: |
-          mkdir dist
-          find . -path '**/dist/*' -exec mv {} dist/ \;
-
-      - name: publish bloomsay to PyPi
-        uses: pypa/gh-action-pypi-publish@release/v1
