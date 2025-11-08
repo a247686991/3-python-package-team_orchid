@@ -44,7 +44,7 @@ jobs:
           path: dist/
 
   publish-to-pypi:
-    name: publish to test PyPi
+    name: publish to PyPi
     needs: build-and-test
     if: github.ref_type == 'tag'
     runs-on: ubuntu-latest
@@ -59,6 +59,6 @@ jobs:
           name: python-package-dist-3.12
           path: dist/
       
-      - name: publish bloomsay to test PyPi
+      - name: publish bloomsay to PyPi
         uses: pypa/gh-action-pypi-publish@release/v1
 
