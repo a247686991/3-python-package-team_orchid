@@ -132,3 +132,49 @@ def jokes (n=1):
     print(f"{bubble}\n{ascii_art}")
     
     return randomSelect
+
+def study_tip(hours_available=2, difficulty="medium"): 
+    if hours_available < 0:
+        raise ValueError("Hours must be non-negative")
+    
+    difficulty = difficulty.lower()
+    if difficulty not in ["easy", "medium", "hard"]:
+        difficulty = "medium"
+    
+    tips = {
+        "easy": [
+            "Quick review session should do it!",
+            "Focus on the key concepts",
+            "Practice a few examples",
+            "Make sure you understand the basics"
+        ],
+        "medium": [
+            "Break it into manageable chunks",
+            "Practice problems are essential",
+            "Review your notes thoroughly",
+            "Try explaining it to someone else"
+        ],
+        "hard": [
+            "Start early, don't cram!",
+            "Work through multiple examples",
+            "Seek help during office hours",
+            "Form a study group if possible",
+            "Break down complex problems step by step"
+        ]
+    }
+    
+    base_tip = random.choice(tips[difficulty])
+    
+    if hours_available < 1:
+        time_advice = "Time is tight! Focus on the most important concepts."
+    elif hours_available < 3:
+        time_advice = "You have decent time. Use it wisely!"
+    else:
+        time_advice = "Great! You have plenty of time to master this."
+    
+    message = f"{time_advice}\n{base_tip}"
+    
+    bubble = make_bubble(message)
+    print(f"{bubble}\n{ascii_art}")
+    
+    return base_tip
