@@ -8,9 +8,9 @@ on:
     tags:
       - 'v*.*.*'
 
-jobs: 
+jobs:
   build-and-test:
-    name: build and test
+    name: build and test on python ${{ matrix.python-version }}
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -20,12 +20,12 @@ jobs:
       - name: check out repo
         uses: actions/checkout@v4
       
-      - name: python ${{ matrix.python-version }} setup 
+      - name: python ${{ matrix.python-version }} setup
         uses: actions/setup-python@v4
         with:
           python-version: ${{ matrix.python-version }}
       
-
+ 
       - name: install dependencies
         run: |
           python -m pip install pipenv
@@ -44,21 +44,20 @@ jobs:
           path: dist/
 
   publish-to-pypi:
-    name: publish to test PyPi
+    name: publish to PyPi
     needs: build-and-test
     if: github.ref_type == 'tag'
     runs-on: ubuntu-latest
-
     permissions:
       id-token: write
-    
     steps:
-      - name: download dist files
+      - name: download all dists
         uses: actions/download-artifact@v4
-        with:
-          name: python-package-dist-3.12
-          path: dist/
       
-      - name: publish bloomsay to test PyPi
-        uses: pypa/gh-action-pypi-publish@release/v1
+      - name: combine dists
+        run: |
+          mkdir dist
+          find . -path '**/dist/*' -exec mv {} dist/ \;
 
+      - name: publish bloomsay to PyPi
+        uses: pypa/gh-action-pypi-publish@release/v1
