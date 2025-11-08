@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "bcea7f1173cc741abc186a9236a8e4dd4cb57d44b490d15c910068b8c8082bf3"
+            "sha256": "168f311aa2eb245a1a229f50b4976607441b56ec9cf6555d67e833aaed3a955a"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -59,6 +59,11 @@
         }
     },
     "develop": {
+        "bloomsays": {
+            "editable": true,
+            "markers": "python_version >= '3.7'",
+            "path": "."
+        },
         "build": {
             "hashes": [
                 "sha256:698edd0ea270bde950f53aed21f3a0135672206f3911e0176261a31e0e07b397",
