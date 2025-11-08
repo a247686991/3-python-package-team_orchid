@@ -91,8 +91,8 @@ class Tests:
         assert isinstance(getJoke, list)
         assert len(getJoke) == 1
         assert getJoke[0] in wisdom.allJokes
-        assert "____" in captured.out
-        assert "@@@@" in captured.out
+        assert "____" in getReturn.out
+        assert "@@@@" in getReturn.out
 
     def test_joke_true_value(self):
         numJokes = 2
@@ -112,10 +112,62 @@ class Tests:
         for joke in getJokes:
             assert joke in wisdom.allJokes
 
-        assert "____" in captured.out
-        assert "@@@@" in captured.out
+        assert "____" in getReturn.out
+        assert "@@@@" in getReturn.out
         
-        numJokesLine = [line for line in captured.out.splitlines() if "|" in line]
+        numJokesLine = [line for line in getReturn.out.splitlines() if "|" in line]
         assert len(numJokesLine) >= numJokes
+    
+    def test_study_tip_default(self, capsys):
+        tip = wisdom.study_tip()
+        captured = capsys.readouterr()
+        assert isinstance(tip, str)
+        assert "@@@" in captured.out
+        assert "|" in captured.out
+    
+    def test_study_tip_easy(self, capsys):
+        tip = wisdom.study_tip(2, "easy")
+        captured = capsys.readouterr()
+        assert isinstance(tip, str)
+        assert "@@@" in captured.out
+    
+    def test_study_tip_medium(self, capsys):
+        tip = wisdom.study_tip(3, "medium")
+        captured = capsys.readouterr()
+        assert isinstance(tip, str)
+        assert "@@@" in captured.out
+    
+    def test_study_tip_hard(self, capsys):
+        tip = wisdom.study_tip(5, "hard")
+        captured = capsys.readouterr()
+        assert isinstance(tip, str)
+        assert "@@@" in captured.out
+    
+    def test_study_tip_short_time(self, capsys):
+        tip = wisdom.study_tip(0.5, "hard")
+        captured = capsys.readouterr()
+        assert "Time is tight" in captured.out
+    
+    def test_study_tip_long_time(self, capsys):
+        tip = wisdom.study_tip(10, "easy")
+        captured = capsys.readouterr()
+        assert "plenty of time" in captured.out
+    
+    def test_study_tip_negative_hours(self):
+        with pytest.raises(ValueError, match="Hours must be non-negative"):
+            wisdom.study_tip(-1, "medium")
+    
+    def test_study_tip_invalid_difficulty(self, capsys):
+        tip = wisdom.study_tip(2, "impossible")
+        captured = capsys.readouterr()
+        assert isinstance(tip, str)
+        assert "@@@" in captured.out
+    
+    def test_study_tip_case_insensitive(self, capsys):
+        tip = wisdom.study_tip(2, "HARD")
+        captured = capsys.readouterr()
+        assert isinstance(tip, str)
+        assert "@@@" in captured.out
+
 
 
