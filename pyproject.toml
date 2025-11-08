@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "bloomsays"
 description = "A package that gives quotes from the professor"
-version = "0.1.0"
+version = "0.1.1"
 authors = [
   { name="Howard Appel", email="hna2019@nyu.edu" },
   { name="Kazi Hossain", email="keh8423@nyu.edu" },
