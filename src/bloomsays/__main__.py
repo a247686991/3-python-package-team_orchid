@@ -4,7 +4,7 @@ from bloomsays import wisdom
 def main():
     args = sys.argv[1:]
     if not args:
-        print("Usage: bloomsays randomQuote [n] | bloomsays avg num1 num2 ...")
+        print("Usage: bloomsays randomQuote [n] OR bloomsays joke [n] OR bloomsays avg num1 num2 ...")
         return
 
     command = args[0]
@@ -12,6 +12,9 @@ def main():
     if command == "randomQuote":
         n = int(args[1]) if len(args) > 1 else 1
         wisdom.random_quote(n)
+    elif command == 'joke':
+        n = int(args[1]) if len(args) > 1 else 1
+        wisdom.jokes(n)
     elif command == "avg":
         if len(args) < 2:
             print("Usage: bloomsays avg num1 num2 ...")
